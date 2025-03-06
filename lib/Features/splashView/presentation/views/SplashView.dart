@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gofood/Core/appStyles.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -7,28 +8,22 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Stack(
+      body: Column(
         children: [
-          Container(
-            width: double.infinity,
-            height: MediaQuery.sizeOf(context).height,
-            color: Colors.red,
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: MediaQuery.sizeOf(context).height * 0.4,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: CircleAvatar(
+              radius: 100,
+              backgroundImage: AssetImage(
+                'assets/images/cute_chef_girl_in_uniform_character_holding_a_turner_food_restaurant_logo_cartoon_art_illustration.jpg',
               ),
             ),
           ),
+          Text(
+            'Gofood',
+            style: AppStyles.text22(context).copyWith(color: Colors.orange),
+          ),
+          Text("the best of food for you", style: AppStyles.text14(context)),
         ],
       ),
     );

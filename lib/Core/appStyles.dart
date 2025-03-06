@@ -40,4 +40,12 @@ class AppStyles {
       fontWeight: FontWeight.bold,
     );
   }
+
+   static TextStyle text22(BuildContext context) {
+    const adaptiveTextSize = AdaptiveTextSize();
+    return TextStyle(
+      fontSize: adaptiveTextSize.getadaptiveTextSize(context, 22),
+      fontWeight: FontWeight.bold,
+    );
+  }
 }

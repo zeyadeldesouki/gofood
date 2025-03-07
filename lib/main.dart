@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:gofood/Core/appRouting.dart';
 import 'package:gofood/Features/splashView/presentation/views/SplashView.dart';
 
 void main() async {
@@ -14,9 +15,9 @@ class goFood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRoutes.router,
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
     );
   }
 }

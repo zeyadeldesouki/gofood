@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:gofood/Core/appRouting.dart';
 import 'package:gofood/Core/appStyles.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      GoRouter.of(context).push(AppRoutes.ksplash2);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +25,7 @@ class SplashView extends StatelessWidget {
       appBar: AppBar(),
       body: Column(
         children: [
-          Align(
+          const Align(
             alignment: Alignment.topCenter,
             child: CircleAvatar(
               radius: 100,

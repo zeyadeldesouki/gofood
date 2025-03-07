@@ -40,6 +40,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   flutter_facebook_auth: ^7.1.1
   flutter_svg: ^2.0.17
+  go_router: ^14.8.1
   google_sign_in: ^6.2.2
   pay_with_stripe: ^0.0.3
 
@@ -57,9 +58,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-
-
-
   assets:
     - assets/images/
     # - images/a_dot_ham.jpeg

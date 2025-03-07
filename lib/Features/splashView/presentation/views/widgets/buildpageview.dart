@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gofood/Core/appStyles.dart';
-import 'package:gofood/Features/splash2/data/pageViewModel.dart';
+import 'package:gofood/Features/splashView/data/pageViewModel.dart';
 
 class Buildpageview extends StatefulWidget {
   const Buildpageview({super.key});
@@ -15,17 +15,12 @@ class _BuildpageviewState extends State<Buildpageview> {
     Pageviewmodel(
       image:
           'assets/images/cute_chef_girl_in_uniform_character_holding_a_turner_food_restaurant_logo_cartoon_art_illustration.jpg',
-      description: "description",
+      description: "Search for your\n favourite food",
     ),
     Pageviewmodel(
       image:
           'assets/images/cute_chef_girl_in_uniform_character_holding_a_turner_food_restaurant_logo_cartoon_art_illustration.jpg',
-      description: "2",
-    ),
-    Pageviewmodel(
-      image:
-          'assets/images/cute_chef_girl_in_uniform_character_holding_a_turner_food_restaurant_logo_cartoon_art_illustration.jpg',
-      description: "description",
+      description: "Fast Delivery to\n your place",
     ),
   ];
   @override
@@ -44,6 +39,7 @@ class _BuildpageviewState extends State<Buildpageview> {
             itemBuilder: (context, index) {
               return Container(
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                     image: AssetImage(imagelist[index].image),
                     fit: BoxFit.cover,

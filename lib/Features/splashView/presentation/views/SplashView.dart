@@ -1,44 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gofood/Core/appRouting.dart';
-import 'package:gofood/Core/appStyles.dart';
+import 'package:gofood/Core/customButton.dart';
+import 'package:gofood/Features/signIn/data/customButtonModel.dart';
+import 'package:gofood/Features/splashView/presentation/views/widgets/buildpageview.dart';
 
-class SplashView extends StatefulWidget {
-  const SplashView({super.key});
+class splashView extends StatefulWidget {
+  const splashView({super.key});
 
   @override
-  State<SplashView> createState() => _SplashViewState();
+  State<splashView> createState() => _splashViewState();
 }
 
-class _SplashViewState extends State<SplashView> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      GoRouter.of(context).push(AppRoutes.ksplash2);
-    });
-  }
-
+class _splashViewState extends State<splashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
+      body: Stack(
         children: [
-          const Align(
-            alignment: Alignment.topCenter,
-            child: CircleAvatar(
-              radius: 100,
-              backgroundImage: AssetImage(
-                'assets/images/cute_chef_girl_in_uniform_character_holding_a_turner_food_restaurant_logo_cartoon_art_illustration.jpg',
+          Container(
+            height: MediaQuery.sizeOf(context).height,
+            color: Colors.orange,
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: MediaQuery.sizeOf(context).height * 0.75,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
               ),
+              child: const SafeArea(child: Column(children: [Buildpageview()])),
             ),
           ),
-          Text(
-            'Gofood',
-            style: AppStyles.text22(context).copyWith(color: Colors.orange),
+          Positioned(
+            bottom: 30,
+            left: 20,
+            right: 20,
+            child: Row(
+              children: [
+                Expanded(
+                  child: customButton(
+                    custombuttonmodel: Custombuttonmodel(
+                      text: "SignUp",
+                      onPressed: () {
+                        GoRouter.of(context).push(AppRoutes.kSignup);
+                      },
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: customButton(
+                    custombuttonmodel: Custombuttonmodel(
+                      text: "SignIn",
+                      onPressed: () {
+                        GoRouter.of(context).push(AppRoutes.kSignIn);
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          Text("the best of food for you", style: AppStyles.text14(context)),
         ],
       ),
     );

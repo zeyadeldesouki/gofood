@@ -54,7 +54,7 @@ class _SigninviewState extends State<Signinview> {
                         errorText: "Enter a valid email",
                       ),
 
-                      FormBuilderValidators.max(30),
+                      FormBuilderValidators.maxLength(30),
                     ],
                     hinttext: "Email",
                     label: const Text("Email"),
@@ -78,7 +78,6 @@ class _SigninviewState extends State<Signinview> {
                         6,
                         errorText: "Password must be at least 6 characters",
                       ),
-
                       FormBuilderValidators.maxLength(
                         30,
                         errorText: "Password must be at most 30 characters",

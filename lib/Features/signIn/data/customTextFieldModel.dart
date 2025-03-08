@@ -10,7 +10,7 @@ class Customtextfieldmodel {
   Customtextfieldmodel( {
     this.obscureText = false,
     this.validator,
-    required this.controller,
+    this.controller,
     required this.hinttext,
     required this.label,
   });

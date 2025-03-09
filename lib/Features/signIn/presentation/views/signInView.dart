@@ -7,6 +7,7 @@ import 'package:gofood/Core/appRouting.dart';
 import 'package:gofood/Core/appStyles.dart';
 import 'package:gofood/Core/authService.dart';
 import 'package:gofood/Core/customButton.dart';
+import 'package:gofood/Core/customSnackBar.dart';
 import 'package:gofood/Features/appView/presentation/views/applogo.dart';
 import 'package:gofood/Features/signIn/data/customButtonModel.dart';
 import 'package:gofood/Features/signIn/data/customTextFieldModel.dart';
@@ -67,12 +68,10 @@ class _SigninviewState extends State<Signinview> {
                     hinttext: "Password",
                     label: const Text("Password"),
                     controller: password,
+                    obscureText: true,
                     validator: [
                       FormBuilderValidators.required(
                         errorText: "Password is required",
-                      ),
-                      FormBuilderValidators.password(
-                        errorText: "Enter a valid password",
                       ),
                       FormBuilderValidators.minLength(
                         6,
@@ -88,21 +87,38 @@ class _SigninviewState extends State<Signinview> {
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
                 Align(
                   alignment: Alignment.bottomRight,
-                  child: Text(
-                    "Forgot Password?",
-                    style: AppStyles.text14(context),
+                  child: InkWell(
+                    onTap: () => GoRouter.of(context).push(AppRoutes.kForget),
+                    child: Text(
+                      "Forgot Password?",
+                      style: AppStyles.text14(context),
+                    ),
                   ),
                 ),
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
                 customButton(
                   custombuttonmodel: Custombuttonmodel(
                     text: "Sign In",
-                    onPressed: () {
-                      if (formKey.currentState!.validate()){
-                        authService().signInWithEmailAndPassword(
-                          email.text,
-                          password.text,
-                        );
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        try {
+                          await authService().signInWithEmailAndPassword(
+                            email.text,
+                            password.text,
+                          );
+                          customSnackBar(
+                            context: context,
+                            content: "Sign In Successfully",
+                            backgroundColor: Colors.green,
+                          );
+                          GoRouter.of(context).push(AppRoutes.kHome);
+                        } catch (e) {
+                          customSnackBar(
+                            context: context,
+                            content: e.toString(),
+                            backgroundColor: Colors.red,
+                          );
+                        }
                       }
                     },
                     minimumSize: Size(

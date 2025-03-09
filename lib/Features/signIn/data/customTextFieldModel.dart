@@ -6,8 +6,10 @@ class Customtextfieldmodel {
   final Widget? label;
   final List<FormFieldValidator<String>>? validator;
   final bool obscureText;
+  final TextInputType? keyboardType;
 
-  Customtextfieldmodel( {
+  Customtextfieldmodel({
+    this.keyboardType = TextInputType.text, 
     this.obscureText = false,
     this.validator,
     this.controller,

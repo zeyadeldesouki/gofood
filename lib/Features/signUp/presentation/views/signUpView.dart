@@ -5,6 +5,7 @@ import 'package:gofood/Core/appRouting.dart';
 import 'package:gofood/Core/appStyles.dart';
 import 'package:gofood/Core/authService.dart';
 import 'package:gofood/Core/customButton.dart';
+import 'package:gofood/Core/customSnackBar.dart';
 import 'package:gofood/Features/signIn/data/customButtonModel.dart';
 import 'package:gofood/Features/signIn/data/customTextFieldModel.dart';
 import 'package:gofood/Features/signIn/presentation/views/widgets/customTextField.dart';
@@ -58,9 +59,13 @@ class _SignupviewState extends State<Signupview> {
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
               customtextfield(
                 customtextfieldmodel: Customtextfieldmodel(
+                  keyboardType: TextInputType.number,
                   validator: [
                     FormBuilderValidators.required(
                       errorText: "Phone Number is required",
+                    ),
+                    FormBuilderValidators.phoneNumber(
+                      errorText: "Enter a valid phone number",
                     ),
                   ],
                   hinttext: "Enter Phone Number",
@@ -89,6 +94,7 @@ class _SignupviewState extends State<Signupview> {
               customtextfield(
                 customtextfieldmodel: Customtextfieldmodel(
                   controller: password,
+                  obscureText: true,
                   validator: [
                     FormBuilderValidators.required(
                       errorText: "Password is required",
@@ -105,6 +111,7 @@ class _SignupviewState extends State<Signupview> {
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
               customtextfield(
                 customtextfieldmodel: Customtextfieldmodel(
+                  obscureText: true,
                   validator: [
                     FormBuilderValidators.required(
                       errorText: "Confirm Password is required",
@@ -125,13 +132,28 @@ class _SignupviewState extends State<Signupview> {
                       MediaQuery.sizeOf(context).width * 0.8,
                       50,
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (formkey.currentState!.validate()) {
-                        authService().signUpWithEmailAndPassword(
-                          email.text,
-                          password.text,
-                        );
-                        GoRouter.of(context).push(AppRoutes.kVerifiy);
+                        try {
+                          await authService().signUpWithEmailAndPassword(
+                            email.text,
+                            password.text,
+                          );
+                          customSnackBar(
+                            context: context,
+                            content: "Successfully",
+                            backgroundColor: Colors.green,
+                          );
+                          GoRouter.of(
+                            context,
+                          ).push(AppRoutes.kVerifiy, extra: email.text);
+                        } catch (e) {
+                          customSnackBar(
+                            backgroundColor: Colors.red,
+                            context: context,
+                            content: e.toString(),
+                          );
+                        }
                       }
                     },
                   ),

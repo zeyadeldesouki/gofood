@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class OTPcontainer extends StatelessWidget {
-  const OTPcontainer({super.key});
+class OTP extends StatelessWidget {
+  const OTP({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +14,11 @@ class OTPcontainer extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.orange,
           borderRadius: BorderRadius.circular(10),
+        ),
+        child: const TextField(
+          decoration: InputDecoration(border: InputBorder.none),
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
         ),
       ),
     );

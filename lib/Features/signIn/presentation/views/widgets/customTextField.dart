@@ -12,6 +12,7 @@ class customtextfield extends StatelessWidget {
       validator: FormBuilderValidators.compose(customtextfieldmodel.validator??[]),
       controller: customtextfieldmodel.controller,
       obscureText: customtextfieldmodel.obscureText,
+      keyboardType: customtextfieldmodel.keyboardType,
       decoration: InputDecoration(
         hintText: customtextfieldmodel.hinttext,
         hintStyle: AppStyles.text14(context),

@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:gofood/Features/VerifiyView/presentation/views/VerifiyView.dart';
+import 'package:gofood/Features/home/presentation/views/homeview.dart';
 import 'package:gofood/Features/signIn/presentation/views/signInView.dart';
 import 'package:gofood/Features/signUp/presentation/views/signUpView.dart';
 import 'package:gofood/Features/splashView/presentation/views/splashView.dart';
@@ -21,9 +22,8 @@ class AppRoutes {
       GoRoute(path: ksplash, builder: (context, state) => const splashView()),
       GoRoute(path: kSignup, builder: (context, state) => const Signupview()),
       GoRoute(path: kSignIn, builder: (context, state) => const Signinview()),
-      // GoRoute(path: kProfile, builder: (context, state) => const ProfileView()),
       GoRoute(path: kVerifiy, builder: (context, state) => const VerifiyView()),
-      // GoRoute(path: kHome, builder: (context, state) => const HomeView()),
+      GoRoute(path: kHome, builder: (context, state) => const Homeview()),
       // GoRoute(
       //   path: kDetails,
       //   builder: (context, state) => const PopularDetailsView(),

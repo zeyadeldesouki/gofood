@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:go_router/go_router.dart';
+import 'package:gofood/Core/appRouting.dart';
 import 'package:gofood/Core/appStyles.dart';
 import 'package:gofood/Core/authService.dart';
 import 'package:gofood/Core/customButton.dart';
@@ -44,6 +46,11 @@ class _SignupviewState extends State<Signupview> {
 
               customtextfield(
                 customtextfieldmodel: Customtextfieldmodel(
+                  validator: [
+                    FormBuilderValidators.required(
+                      errorText: "Full Name is required",
+                    ),
+                  ],
                   hinttext: "Enter Full Name",
                   label: const Text("Full Name"),
                 ),
@@ -51,6 +58,11 @@ class _SignupviewState extends State<Signupview> {
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
               customtextfield(
                 customtextfieldmodel: Customtextfieldmodel(
+                  validator: [
+                    FormBuilderValidators.required(
+                      errorText: "Phone Number is required",
+                    ),
+                  ],
                   hinttext: "Enter Phone Number",
                   label: const Text("Phone Number"),
                 ),
@@ -77,6 +89,15 @@ class _SignupviewState extends State<Signupview> {
               customtextfield(
                 customtextfieldmodel: Customtextfieldmodel(
                   controller: password,
+                  validator: [
+                    FormBuilderValidators.required(
+                      errorText: "Password is required",
+                    ),
+                    FormBuilderValidators.minLength(
+                      6,
+                      errorText: "Password must be at least 6 characters",
+                    ),
+                  ],
                   hinttext: "Enter Password",
                   label: const Text("Password"),
                 ),
@@ -88,10 +109,8 @@ class _SignupviewState extends State<Signupview> {
                     FormBuilderValidators.required(
                       errorText: "Confirm Password is required",
                     ),
-                    FormBuilderValidators.match(
-                      RegExp(password.text),
-                      errorText: "Password does not match",
-                    ),
+                    (value) =>
+                        value != password.text ? "Passwords don't match" : null,
                   ],
                   hinttext: "Confirm Password",
                   label: const Text("Confirm Password"),
@@ -108,7 +127,11 @@ class _SignupviewState extends State<Signupview> {
                     ),
                     onPressed: () {
                       if (formkey.currentState!.validate()) {
-                        authService().sendEmailVerification();
+                        authService().signUpWithEmailAndPassword(
+                          email.text,
+                          password.text,
+                        );
+                        GoRouter.of(context).push(AppRoutes.kVerifiy);
                       }
                     },
                   ),

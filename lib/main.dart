@@ -7,7 +7,7 @@ import 'package:gofood/Features/appView/presentation/views/appView.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(DevicePreview(builder: (context) => goFood()));
+  runApp(DevicePreview(builder: (context) => const goFood()));
 }
 
 class goFood extends StatelessWidget {

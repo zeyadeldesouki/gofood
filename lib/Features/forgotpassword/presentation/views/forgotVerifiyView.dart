@@ -9,11 +9,12 @@ import 'package:gofood/Core/customSnackBar.dart';
 import 'package:gofood/Features/VerifiyView/presentation/views/widgets/OTP.dart';
 import 'package:gofood/Features/signIn/data/customButtonModel.dart';
 
-class VerifiyView extends StatelessWidget {
-  const VerifiyView({super.key});
+class forgotVerifiyView extends StatelessWidget {
+  const forgotVerifiyView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var email = GoRouterState.of(context).extra as String;
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -44,8 +45,9 @@ class VerifiyView extends StatelessWidget {
                       await authService().sendEmailVerification();
                       customSnackBar(
                         context: context,
-                        content: "Code has been sent to ${GoRouterState.of(context).extra as String}"
-                            .toLowerCase(),
+                        content:
+                            "Code has been sent to ${GoRouterState.of(context).extra as String}"
+                                .toLowerCase(),
                         backgroundColor: Colors.green,
                       );
                     } catch (e) {
@@ -65,8 +67,8 @@ class VerifiyView extends StatelessWidget {
               custombuttonmodel: Custombuttonmodel(
                 minimumSize: Size(MediaQuery.sizeOf(context).width * 0.8, 50),
                 text: "Submit",
-                onPressed: () async {
-                  GoRouter.of(context).push(AppRoutes.kHome);
+                onPressed: () {
+                  GoRouter.of(context).push(AppRoutes.kresetpassword,extra: email);
                 },
               ),
             ),

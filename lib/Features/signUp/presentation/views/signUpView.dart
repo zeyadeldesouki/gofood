@@ -67,6 +67,10 @@ class _SignupviewState extends State<Signupview> {
                     FormBuilderValidators.phoneNumber(
                       errorText: "Enter a valid phone number",
                     ),
+                    (value) =>
+                        value!.length != 11
+                            ? "Phone number must be 11 digits"
+                            : null,
                   ],
                   hinttext: "Enter Phone Number",
                   label: const Text("Phone Number"),

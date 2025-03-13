@@ -68,7 +68,9 @@ class forgotVerifiyView extends StatelessWidget {
                 minimumSize: Size(MediaQuery.sizeOf(context).width * 0.8, 50),
                 text: "Submit",
                 onPressed: () {
-                  GoRouter.of(context).push(AppRoutes.kresetpassword,extra: email);
+                  GoRouter.of(
+                    context,
+                  ).push(AppRoutes.kresetpassword, extra: email);
                 },
               ),
             ),

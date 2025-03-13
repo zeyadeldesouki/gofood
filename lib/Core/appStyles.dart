@@ -41,7 +41,7 @@ class AppStyles {
     );
   }
 
-   static TextStyle text22(BuildContext context) {
+  static TextStyle text22(BuildContext context) {
     const adaptiveTextSize = AdaptiveTextSize();
     return TextStyle(
       fontSize: adaptiveTextSize.getadaptiveTextSize(context, 22),

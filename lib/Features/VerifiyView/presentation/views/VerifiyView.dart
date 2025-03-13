@@ -44,8 +44,9 @@ class VerifiyView extends StatelessWidget {
                       await authService().sendEmailVerification();
                       customSnackBar(
                         context: context,
-                        content: "Code has been sent to ${GoRouterState.of(context).extra as String}"
-                            .toLowerCase(),
+                        content:
+                            "Code has been sent to ${GoRouterState.of(context).extra as String}"
+                                .toLowerCase(),
                         backgroundColor: Colors.green,
                       );
                     } catch (e) {

@@ -9,7 +9,9 @@ class customtextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: FormBuilderValidators.compose(customtextfieldmodel.validator??[]),
+      validator: FormBuilderValidators.compose(
+        customtextfieldmodel.validator ?? [],
+      ),
       controller: customtextfieldmodel.controller,
       obscureText: customtextfieldmodel.obscureText,
       keyboardType: customtextfieldmodel.keyboardType,

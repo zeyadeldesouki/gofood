@@ -9,7 +9,7 @@ class Customtextfieldmodel {
   final TextInputType? keyboardType;
 
   Customtextfieldmodel({
-    this.keyboardType = TextInputType.text, 
+    this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.validator,
     this.controller,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gofood/Core/appStyles.dart';
@@ -42,7 +41,7 @@ class _HomeviewState extends State<Homeview> {
             ),
           ],
           centerTitle: true,
-          title: const Text("Home"),
+          title: const Text("GoFood"),
         ),
         body: SafeArea(
           child: Padding(

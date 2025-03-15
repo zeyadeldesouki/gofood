@@ -3,6 +3,7 @@ import 'package:gofood/Features/VerifiyView/presentation/views/VerifiyView.dart'
 import 'package:gofood/Features/forgotpassword/presentation/views/forgotVerifiyView.dart';
 import 'package:gofood/Features/forgotpassword/presentation/views/forgotpassword.dart';
 import 'package:gofood/Features/forgotpassword/presentation/views/resetPasswordView.dart';
+import 'package:gofood/Features/home/Details/presentation/views/detailsView.dart';
 import 'package:gofood/Features/home/presentation/views/homeview.dart';
 import 'package:gofood/Features/signIn/presentation/views/signInView.dart';
 import 'package:gofood/Features/signUp/presentation/views/signUpView.dart';
@@ -19,6 +20,7 @@ class AppRoutes {
   static const kHome = "/home";
   static const kresetpassword = "/resetpassword";
   static const kForgotVerifiy = "/forgotverifiy";
+  static const kDetails = "/details";
   static final GoRouter router = GoRouter(
     routes: [
       GoRoute(path: kAppLogo, builder: (context, state) => const appView()),
@@ -39,6 +41,10 @@ class AppRoutes {
       GoRoute(
         path: kForgotVerifiy,
         builder: (context, state) => const forgotVerifiyView(),
+      ),
+       GoRoute(
+        path: kDetails,
+        builder: (context, state) => const Detailsview(),
       ),
     ],
     // errorBuilder: (context, state) => const ErrorView(),

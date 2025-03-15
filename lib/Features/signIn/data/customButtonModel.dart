@@ -4,8 +4,10 @@ class Custombuttonmodel {
   final String text;
   final Size? minimumSize;
   final void Function()? onPressed;
+  final Color? backgroundColor;
 
-  Custombuttonmodel({
+  Custombuttonmodel( {
+    this.backgroundColor,
     required this.text,
     this.minimumSize,
     required this.onPressed,

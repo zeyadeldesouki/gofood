@@ -11,6 +11,7 @@ class customButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         minimumSize: custombuttonmodel.minimumSize,
+        backgroundColor: custombuttonmodel.backgroundColor,
       ),
       onPressed: custombuttonmodel.onPressed,
       child: Text(custombuttonmodel.text, style: AppStyles.text14(context)),

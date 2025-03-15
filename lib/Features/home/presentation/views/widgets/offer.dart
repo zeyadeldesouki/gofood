@@ -12,7 +12,7 @@ class offerContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         image: const DecorationImage(
           image: NetworkImage(
-            "https://th.bing.com/th?id=OIP.OM_YQDFEEZ6NPj0XapYwFgHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+            "https://th.bing.com/th/id/OIP.9nl2eFOD4SKNC_FIn0bSqQHaFj?w=193&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
           ),
           fit: BoxFit.fill,
         ),

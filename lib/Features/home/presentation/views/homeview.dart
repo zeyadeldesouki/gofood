@@ -16,8 +16,6 @@ class Homeview extends StatefulWidget {
 }
 
 class _HomeviewState extends State<Homeview> {
-  final List<String> _suggestions = ['One', 'Two', 'Three'];
-  final SearchController _searchController = SearchController();
 
   @override
   Widget build(BuildContext context) {

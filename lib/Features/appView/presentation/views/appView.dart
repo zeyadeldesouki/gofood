@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gofood/Core/appRouting.dart';
-import 'package:gofood/Core/appStyles.dart';
 import 'package:gofood/Features/appView/presentation/views/applogo.dart';
 
 class appView extends StatefulWidget {

@@ -6,7 +6,6 @@ import 'package:gofood/Features/home/presentation/views/manager/Recipecubit/reci
 import 'package:gofood/Features/home/presentation/views/manager/foodcubit/food_cubit.dart';
 import 'package:gofood/Features/home/presentation/views/widgets/bestOfferItem.dart';
 import 'package:gofood/Features/home/presentation/views/widgets/offer.dart';
-import 'package:gofood/Features/home/presentation/views/widgets/searchView.dart';
 import 'package:gofood/Features/home/presentation/views/widgets/topItemListView.dart';
 
 class Homeview extends StatefulWidget {
@@ -38,7 +37,7 @@ class _HomeviewState extends State<Homeview> {
               padding: EdgeInsets.only(right: 16),
               child: CircleAvatar(
                 radius: 20,
-                child: Icon(Icons.person, color: Colors.black),
+                child: Icon(Icons.search, color: Colors.black),
               ),
             ),
           ],
@@ -48,17 +47,12 @@ class _HomeviewState extends State<Homeview> {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16),
-
             child: CustomScrollView(
               slivers: [
                 SliverFillRemaining(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SearchView(
-                        searchController: _searchController,
-                        suggestions: _suggestions,
-                      ),
                       SizedBox(
                         height: MediaQuery.sizeOf(context).height * 0.02,
                       ),

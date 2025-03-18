@@ -6,6 +6,7 @@ import 'package:gofood/Core/appRouting.dart';
 import 'package:gofood/Core/appStyles.dart';
 import 'package:gofood/Core/authService.dart';
 import 'package:gofood/Core/customButton.dart';
+import 'package:gofood/Core/customSnackBar.dart';
 import 'package:gofood/Features/signIn/data/customButtonModel.dart';
 import 'package:gofood/Features/signIn/data/customTextFieldModel.dart';
 import 'package:gofood/Features/signIn/presentation/views/widgets/customTextField.dart';
@@ -89,6 +90,11 @@ class _ResetpasswordviewState extends State<Resetpasswordview> {
                   text: "Done",
                   onPressed: () async {
                     await authService().resetPassword(email);
+                    customSnackBar(
+                      context: context,
+                      content: "Password Reset Successfully",
+                      backgroundColor: Colors.green,
+                    );
                     GoRouter.of(context).push(AppRoutes.kSignIn);
                   },
                 ),

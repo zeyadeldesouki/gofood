@@ -42,10 +42,7 @@ class AppRoutes {
         path: kForgotVerifiy,
         builder: (context, state) => const forgotVerifiyView(),
       ),
-       GoRoute(
-        path: kDetails,
-        builder: (context, state) => const Detailsview(),
-      ),
+      GoRoute(path: kDetails, builder: (context, state) => const Detailsview()),
     ],
     // errorBuilder: (context, state) => const ErrorView(),
   );

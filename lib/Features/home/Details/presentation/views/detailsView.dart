@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:gofood/Core/appStyles.dart';
+import 'package:go_router/go_router.dart';
 import 'package:gofood/Core/customAppBar.dart';
 import 'package:gofood/Features/home/Details/presentation/views/widgets/productInfo.dart';
+import 'package:gofood/Features/home/data/models/recipes/recipe.dart';
 
 class Detailsview extends StatelessWidget {
   const Detailsview({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var recipes = GoRouterState.of(context).extra as Recipe;
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -17,7 +18,9 @@ class Detailsview extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height,
               decoration: BoxDecoration(color: Colors.grey.shade200),
               child: Image.network(
-                "https://th.bing.com/th/id/OIP.9nl2eFOD4SKNC_FIn0bSqQHaFj?w=193&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                width: MediaQuery.sizeOf(context).width,
+                recipes.image ??
+                    "https://th.bing.com/th/id/OIP.9nl2eFOD4SKNC_FIn0bSqQHaFj?w=193&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
                 fit: BoxFit.cover,
               ),
             ),
@@ -34,9 +37,9 @@ class Detailsview extends StatelessWidget {
                   ),
                   color: Colors.white,
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: productInfo(),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: productInfo(recipes: recipes),
                 ),
               ),
             ),

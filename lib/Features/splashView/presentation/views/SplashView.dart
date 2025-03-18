@@ -29,7 +29,7 @@ class _splashViewState extends State<splashView> {
             child: Container(
               height: MediaQuery.sizeOf(context).height * 0.75,
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFFFFF2EF),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),

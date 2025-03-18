@@ -3,7 +3,7 @@ import 'package:gofood/Features/home/data/models/chicken_model/meal.dart';
 import 'package:gofood/Features/home/presentation/views/widgets/topItem.dart';
 
 class Topitemlistview extends StatefulWidget {
-  const Topitemlistview({super.key, required this.meallist,});
+  const Topitemlistview({super.key, required this.meallist});
 
   final List<Meal> meallist;
 
@@ -22,7 +22,7 @@ class _TopitemlistviewState extends State<Topitemlistview> {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TopItem(meal:widget.meallist[index]),
+            child: TopItem(meal: widget.meallist[index]),
           );
         },
       ),

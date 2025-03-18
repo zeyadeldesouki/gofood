@@ -6,7 +6,7 @@ class Custombuttonmodel {
   final void Function()? onPressed;
   final Color? backgroundColor;
 
-  Custombuttonmodel( {
+  Custombuttonmodel({
     this.backgroundColor,
     required this.text,
     this.minimumSize,

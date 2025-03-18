@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,6 @@ class Homeview extends StatefulWidget {
 }
 
 class _HomeviewState extends State<Homeview> {
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -25,6 +25,18 @@ class _HomeviewState extends State<Homeview> {
         BlocProvider(create: (context) => RecipeCubit()..getRecipe()),
       ],
       child: Scaffold(
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.white,
+          buttonBackgroundColor: Colors.white,
+          color: Colors.orange,
+          animationDuration: const Duration(milliseconds: 300),
+          animationCurve: Curves.bounceInOut,
+          items: const [
+            Icon(Icons.home, color: Colors.black),
+            Icon(Icons.favorite, color: Colors.black),
+            Icon(Icons.person, color: Colors.black),
+          ],
+        ),
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.menu, color: Colors.black),

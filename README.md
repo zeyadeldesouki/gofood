@@ -194,5 +194,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 👤 Author
 
-**Zeyad** — [@your-zeyadeldesouki](https://github.com/zeyadeldesouki)
+**Zeyad** — [zeyadeldesouki](https://github.com/zeyadeldesouki)
 
